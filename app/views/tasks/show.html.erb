@@ -1,0 +1,18 @@
+<div class="container mt-3">
+  <h1>Task - <%=@task.title%></h1>
+  <p><%= @task.details %></p>
+      <% if @task.completed  %>
+      <p> Completed?: <i class="fa-regular fa-square-check"></i></p>
+      <% else %>
+        <p> Completed?: <i class="fa-regular fa-square"></i></p>
+      <% end %>
+
+  <p><i class="fa-solid fa-pen-to-square"></i> <%= link_to "Edit this task", edit_task_path(@task) %></p>
+
+  <p><i class="fa-solid fa-backward"></i> <%= link_to "Return to Task list", tasks_path %></p>
+
+  <p><i class="fa-solid fa-trash"></i> <%= link_to "Delete this Task",
+    task_path(@task),
+    data: {turbo_method: :delete, turbo_confirm: "This action will delete this task entirely. Are you sure?"}
+  %></p>
+</div>

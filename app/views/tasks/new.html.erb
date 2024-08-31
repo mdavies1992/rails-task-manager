@@ -1,0 +1,19 @@
+<div class="container mt-3">
+  <h1>New Task</h1>
+
+  <% @task.errors.full_messages.each do |message| %>
+    <p class="text-danger"><%= message %></p>
+  <% end %>
+
+  <%= form_with model: @task do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class:"form-control" %>
+    <%= f.label :details %>
+    <%= f.text_area :details, class:"form-control" %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+    <br>
+  <p><i class="fa-solid fa-backward"></i> <%= link_to "Return to Task list", tasks_path %></p>
+
+</div>
